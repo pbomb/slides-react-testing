@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots using mount 1`] = `
+.css-0,
+[data-css-0] {
+  color: black;
+}
+
+<Counter>
+  <div>
+    <button
+      data-testid="decrement"
+      disabled={false}
+      onClick={[Function]}
+    >
+      -
+    </button>
+    <Component
+      clicks={0}
+    >
+      <glamorous(div)
+        clicks={0}
+        data-testid="count"
+      >
+        <div
+          className="css-0"
+          data-testid="count"
+        >
+          0
+        </div>
+      </glamorous(div)>
+    </Component>
+    <button
+      data-testid="increment"
+      disabled={false}
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+</Counter>
+`;
+
+exports[`snapshots using shallow 1`] = `
+<div>
+  <button
+    data-testid="decrement"
+    disabled={false}
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <Component
+    clicks={0}
+  />
+  <button
+    data-testid="increment"
+    disabled={false}
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;

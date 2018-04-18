@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "outDir": "output",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "target": "es6"
+  },
+  "filesGlob": ["src/**/*.ts{,x}"],
+  "exclude": ["node_modules"],
+  "compileOnSave": false,
+  "atom": {
+    "formatOnSave": true,
+    "rewriteTsconfig": false
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true
+  },
+  "formatCodeOptions": {
+    "convertTabsToSpaces": true,
+    "indentSize": 2,
+    "insertSpaceAfterCommaDelimiter": true,
+    "insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "insertSpaceAfterSemicolonInForStatements": true,
+    "insertSpaceBeforeAndAfterBinaryOperators": true,
+    "placeOpenBraceOnNewLineForControlBlocks": false,
+    "placeOpenBraceOnNewLineForFunctions": false
+  }
+}

@@ -1,0 +1,21 @@
+import React from "react";
+
+export default class Counter extends React.Component {
+  state = {
+    clicks: 0
+  };
+
+  _decrement = () => this.setState((state) => ({ clicks: state.clicks - 1 }));
+
+  _increment = () => this.setState((state) => ({ clicks: state.clicks + 1 }));
+
+  render() {
+    return (
+      <div>
+        <button onClick={this._decrement} data-testid="decrement">-</button>
+        <Count clicks={this.state.clicks}/>
+        <button onClick={this._increment} data-testid="increment">+</button>
+      </div>
+    );
+  }
+}

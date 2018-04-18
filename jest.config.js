@@ -1,0 +1,24 @@
+module.exports = {
+  clearMocks: true,
+  collectCoverageFrom: ['src/**/*.ts', 'src/**/*.tsx'],
+  coverageThreshold: {
+    global: {
+      branches: 90,
+      functions: 90,
+      lines: 90,
+      statements: 90,
+    },
+  },
+  coverageReporters: ['cobertura', 'text', 'lcov'],
+  moduleDirectories: ['node_modules', 'src'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  restoreMocks: true,
+  setupTestFrameworkScriptFile:
+    '<rootDir>src/test-utils/jest/setupTestFramework.ts',
+  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-glamor-react'],
+  testRegex: '(/__tests__/.*|\\.spec)\\.(ts|tsx|js)$',
+  transform: {
+    '^.+\\.tsx?$': './node_modules/ts-jest/preprocessor.js',
+  },
+  transformIgnorePatterns: ['node_modules/(?!@workday/talk-web-api)/'],
+};

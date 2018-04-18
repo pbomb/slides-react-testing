@@ -1,0 +1,38 @@
+import { mount } from 'enzyme';
+import SimpleButton from './simple-component.example';
+
+describe('SimpleButton', () => {
+  const onClick = jest.fn();
+
+  beforeEach(() => {
+    onClick.mockReset();
+  });
+
+  it('renders enabled button when disabled is false', () => {
+    const wrapper = mount(
+      <SimpleButton disabled="false" text="I'm Enabled" onClick={onClick} />
+    );
+
+    expect(wrapper.find('button[disabled="false"]').length).toBe(1);
+    expect(wrapper.find('button[disabled="false"]').text()).toBe("I'm Enabled");
+  });
+
+  it('renders disabled button when disabled is true', () => {
+    const wrapper = mount(
+      <SimpleButton disabled="true" text="I'm Disabled" onClick={onClick} />
+    );
+
+    expect(wrapper.find('button[disabled="true"]').length).toBe(1);
+    expect(wrapper.find('button[disabled="true"]').text()).toBe("I'm Disabled");
+  });
+
+  it('calls onClick handler on click', () => {
+    const wrapper = mount(
+      <SimpleButton disabled="true" text="I'm Disabled" onClick={onClick} />
+    );
+
+    wrapper.simulate('click');
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+});
