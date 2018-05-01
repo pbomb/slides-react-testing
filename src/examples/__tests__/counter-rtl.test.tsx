@@ -13,13 +13,13 @@ test('renders disabled buttons', () => {
 });
 
 test('increments the counter when clicking the + button', () => {
-  const { container, getByTestId } = render(<Counter />);
-  Simulate.click(getByTestId('increment'));
+  const { container, getByText } = render(<Counter />);
+  Simulate.click(getByText('+'));
   expect(container.firstChild).toMatchSnapshot();
 });
 
 test('decrements the counter when clicking the - button', () => {
-  const { container, getByTestId } = render(<Counter />);
-  Simulate.click(getByTestId('decrement'));
+  const { container, getByText } = render(<Counter />);
+  Simulate.click(getByText('-'));
   expect(container.firstChild).toMatchSnapshot();
 });
