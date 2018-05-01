@@ -1,14 +1,17 @@
 // Import React
 import React from 'react';
+import styled, { injectGlobal } from 'react-emotion';
 
 // Import Spectacle Core tags
 import {
   Appear,
   BlockQuote,
   Cite,
+  CodePane as CodePaneLib,
   Deck,
   Fill,
   Heading,
+  Image,
   Layout,
   ListItem,
   List,
@@ -28,7 +31,15 @@ import createTheme from 'spectacle/lib/themes/default';
 
 // Require CSS
 require('normalize.css');
-require('../assets/prism.css');
+// require('../assets/prism.css');
+
+injectGlobal({
+  'pre, code': {
+    fontFamily: '"Dank Mono", monospace',
+  },
+});
+
+const CodePane = styled(CodePaneLib)({ margin: '50px 0', fontSize: '2rem' });
 
 const theme = createTheme(
   {
@@ -40,6 +51,7 @@ const theme = createTheme(
   {
     primary: 'Montserrat',
     secondary: 'Helvetica',
+    tertiary: 'Dank Mono',
   }
 );
 theme.screen.components.quote.lineHeight = 1.3;
@@ -56,7 +68,7 @@ export default class Presentation extends React.Component {
       >
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps textColor="secondary">
-            react-testing-library
+            Testing React Components
           </Heading>
           <Text
             margin="10px 0 0"
@@ -64,28 +76,8 @@ export default class Presentation extends React.Component {
             size={1}
             textAlign="left"
           >
-            Simple and complete React DOM testing utilities that encourage good
-            testing practices.
+            The Good, the Bad and the Ugly 🔫 🤠 🐴
           </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Layout>
-            <Fill>
-              <Tweet>
-                <p lang="en" dir="ltr">
-                  I&#39;m seriously starting to think that I should make my own
-                  (very small) testing lib and drop enzyme entirely. Most of
-                  enzyme&#39;s features are not at all useful (and many
-                  damaging) to my testbases. I&#39;d rather have something
-                  smaller that encourages better practices.
-                </p>
-                &mdash; Kent C. Dodds (@kentcdodds)
-                <a href="https://twitter.com/kentcdodds/status/974278185540964352?ref_src=twsrc%5Etfw">
-                  March 15, 2018
-                </a>
-              </Tweet>
-            </Fill>
-          </Layout>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
           <Layout>
@@ -154,77 +146,200 @@ export default class Presentation extends React.Component {
             { loc: [35, 36], note: 'Verify handler was called' },
           ]}
         />
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={3} textColor="primary">
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={3} textColor="secondary">
             Snapshot Testing
           </Heading>
-          <Appear>
-            <Heading size={4} textColor="secondary" margin="1rem">
-              Benefits
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="secondary">
+            Dead Simple
+          </Heading>
+          <Image src="assets/simple-snapshot.png" margin="2rem auto" />
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="secondary">
+            Not just for React components
+          </Heading>
+          <Image src="assets/server-snapshot.png" margin="2rem auto" />
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary">
+            Effective Snapshot Testing
+          </Heading>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="secondary">
+            Name your tests well
+          </Heading>
+          <CodePane
+            lang="javascript"
+            source="it('renders the thread connector when showThreadConnector is true');"
+            textFont="tertiary"
+            textSize="2rem"
+            margin="50px 0"
+          />
+        </Slide>
+        <Slide transition={['slide']} bgColor="#000">
+          <Heading size={5} textColor="primary">
+            Avoid very large snapshots
+          </Heading>
+          <Image src="assets/empire_strikes_back.jpg" />
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary" margin={0}>
+          <Fill>
+            <Heading size={5} textColor="secondary">
+              Use Custom Serializers
             </Heading>
-          </Appear>
-          <List textColor="primary">
-            <Appear>
-              <ListItem>Dead simple</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Not just for React components</ListItem>
-            </Appear>
-          </List>
-          <Text />
+            <Text textSize="1.5rem">(e.g. jest-glamor-react)</Text>
+            <Image
+              src="assets/jest-glamor-react.png"
+              height={698}
+              width={662}
+            />
+          </Fill>
+        </Slide>
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={3} textColor="secondary">
+            Enzyme
+          </Heading>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={3} textColor="primary">
-            Snapshot Testing
+          <Quote
+            textColor="secondary"
+            textFont="secondary"
+            textSize="2rem"
+            textAlign="left"
+          >
+            The more your tests resemble the way your software is used, the more
+            confidence they can give you.
+          </Quote>
+        </Slide>
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={3} textColor="secondary">
+            Challenges with Enzyme
           </Heading>
-          <Heading size={4} textColor="secondary" margin="1rem">
-            Things to consider
+          <Image src="assets/giphy.webp" />
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Large API
           </Heading>
-          <List textColor="primary">
+          <Image src="assets/enzyme-api.gif" />
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Inappropriate touching of privates 😳
+          </Heading>
+          <List textColor="secondary">
             <Appear>
-              <ListItem>Avoid very large snapshots</ListItem>
+              <ListItem>wrapper.state([key])</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Customer Serializers (e.g. jest-glamor-react)</ListItem>
+              <ListItem>wrapper.setState(nextState)</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Snapshot diffs</ListItem>
+              <ListItem>wrapper.prop([key])</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>wrapper.instance()</ListItem>
             </Appear>
           </List>
-          <Text />
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={3} textColor="primary">
-            Issues with Enzyme
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Enzyme Selectors
+          </Heading>
+          <List textColor="secondary">
+            <Appear>
+              <ListItem>Find by props</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Find by Component's constructor</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Find by Component's displayName</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Find by CSS classes</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={['fade']} bgColor="#000">
+          <Image src="assets/spiderman.jpg" />
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            If not Enzyme, then what?
+            <Image src="assets/confused-dogs.gif" />
+          </Heading>
+        </Slide>
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={3} textColor="secondary">
+            react-testing-library 🐐
+          </Heading>
+          <Text
+            textSize="2rem"
+            margin="1rem auto"
+            textAlign="left"
+            textFont="secondary"
+          >
+            Simple and complete React DOM testing utilities that encourage good
+            testing practices.
+          </Text>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Quote
+            textColor="secondary"
+            textFont="secondary"
+            textSize="2rem"
+            textAlign="left"
+          >
+            The more your tests resemble the way your software is used, the more
+            confidence they can give you.
+          </Quote>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Small API, uses the DOM
+          </Heading>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Components tested like they're used
           </Heading>
           <Appear>
-            <Heading size={5} textColor="secondary" margin="1rem">
-              Allows you to do bad things
-            </Heading>
+            <Text>Privates stay private! 😎</Text>
           </Appear>
-          <List textColor="primary">
-            <Appear>
-              <ListItem>Find components by their constructor function</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Inappropriate touching of privates 😳</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Shallow rendering</ListItem>
-            </Appear>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Encourages accessible applications
+          </Heading>
+          <List>
+            <ListItem>getByLabelText</ListItem>
+            <ListItem>getByPlaceholderText</ListItem>
+            <ListItem>getByText</ListItem>
+            <ListItem>getByAltText</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
+            Escape-hatches for everything else
+          </Heading>
+          <List>
+            <ListItem>getByTestId</ListItem>
+            <ListItem>container.querySelector (DOM APIs)</ListItem>
           </List>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading size={3} textColor="primary">
-            Let's look at some examples
-          </Heading>
-          <Heading size={5} textColor="secondary" margin="1rem">
-            To the codez!
+            Let's look at an example
           </Heading>
         </Slide>
         <Slide transition={['zoom']} bgColor="tertiary">
           <Heading size={3} textColor="primary">
-            Component With State
+            Counter Component
           </Heading>
           <Counter />
         </Slide>
@@ -243,9 +358,12 @@ export default class Presentation extends React.Component {
             { loc: [15, 16], note: 'State rendered' },
           ]}
         />
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary" caps>
             How do we test this component?
+          </Heading>
+          <Heading size={5} textColor="secondary" margin="1rem">
+            To the codez! 🚀
           </Heading>
         </Slide>
         <CodeSlide
@@ -268,38 +386,67 @@ export default class Presentation extends React.Component {
             { loc: [4, 10], title: 'What are the problems with this test?' },
           ]}
         />
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            How do we test this component?
-          </Heading>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Layout>
+            <Fill>
+              <Tweet>
+                <p lang="en" dir="ltr">
+                  I&#39;m seriously starting to think that I should make my own
+                  (very small) testing lib and drop enzyme entirely. Most of
+                  enzyme&#39;s features are not at all useful (and many
+                  damaging) to my testbases. I&#39;d rather have something
+                  smaller that encourages better practices.
+                </p>
+                &mdash; Kent C. Dodds (@kentcdodds)
+                <a href="https://twitter.com/kentcdodds/status/974278185540964352?ref_src=twsrc%5Etfw">
+                  March 15, 2018
+                </a>
+              </Tweet>
+            </Fill>
+          </Layout>
         </Slide>
-        <CodeSlide
-          textSize="1.3rem"
-          bgColor="#2d2d2d"
-          color="#fff"
-          transition={['fade']}
-          lang="jsx"
-          code={require('raw-loader!../assets/code/nested-components-enzyme-test.example')}
-          ranges={[
-            { loc: [0, 19], title: 'Enzyme Example' },
-            { loc: [4, 10], note: 'Test state updated' },
-            { loc: [5, 6], note: 'Render Counter' },
-            { loc: [7, 8], note: 'Click Increment Button' },
-            { loc: [8, 9], note: 'Test Internal State (BAD!)' },
-            { loc: [11, 17], note: 'Test rendered output' },
-            { loc: [12, 13], note: 'Render Counter' },
-            { loc: [14, 15], note: 'Click Increment Button' },
-            { loc: [15, 16], note: 'Test Rendered Output (GOOD!)' },
-            { loc: [4, 10], title: 'What are the problems with this test?' },
-          ]}
-        />
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary">
-            What are the problems with the first test?
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={1} fit caps textColor="secondary">
+            react-testing-library
+          </Heading>
+          <Text
+            margin="10px 0 0"
+            textColor="tertiary"
+            size={1}
+            textAlign="left"
+          >
+            Simple and complete React DOM testing utilities that encourage good
+            testing practices.
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary">
+            Let's see how it works
+          </Heading>
+          <Heading size={5} textColor="secondary" margin="1rem">
+            To the codez! 🏃🏽
           </Heading>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size="3" textColor="primary">
+          <Heading size={3} textColor="primary">
+            Benefits vs Enzyme
+          </Heading>
+          <List textColor="secondary">
+            <Appear>
+              <ListItem>Minimal API surface area</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Uses the DOM</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <S type="strikethrough">Encourages</S> Enforces best practices
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary">
             Resources
           </Heading>
           <List>
@@ -317,6 +464,14 @@ export default class Presentation extends React.Component {
                 textColor="secondary"
               >
                 Effective Snapshot Testing
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
+                href="https://github.com/jest-community/snapshot-diff"
+                textColor="secondary"
+              >
+                snapshot-diff
               </Link>
             </ListItem>
           </List>

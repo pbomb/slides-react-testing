@@ -15,9 +15,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "emotion": "^9.1.2",
     "normalize.css": "7.0.0",
+    "prismjs": "1.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-emotion": "^9.1.2",
     "spectacle": "^4.0.0",
     "spectacle-code-slide": "^0.5.2",
     "spectacle-renderer": "^0.0.3"
