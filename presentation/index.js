@@ -6,7 +6,6 @@ import styled, { injectGlobal } from 'react-emotion';
 import {
   Appear,
   BlockQuote,
-  Cite,
   CodePane as CodePaneLib,
   Deck,
   Fill,
