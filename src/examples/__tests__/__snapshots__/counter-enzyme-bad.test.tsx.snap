@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshots using mount 1`] = `
-.css-0,
-[data-css-0] {
+.emotion-0 {
+  margin: 1em;
   color: black;
 }
 
@@ -18,17 +18,17 @@ exports[`snapshots using mount 1`] = `
     <Component
       clicks={0}
     >
-      <glamorous(div)
+      <Styled(span)
         clicks={0}
         data-testid="count"
       >
-        <div
-          className="css-0"
+        <span
+          className="emotion-0"
           data-testid="count"
         >
           0
-        </div>
-      </glamorous(div)>
+        </span>
+      </Styled(span)>
     </Component>
     <button
       data-testid="increment"

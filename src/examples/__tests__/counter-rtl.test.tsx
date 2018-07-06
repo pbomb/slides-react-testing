@@ -1,4 +1,4 @@
-import { render, Simulate } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 import * as React from 'react';
 import Counter from '../counter';
 
@@ -14,12 +14,12 @@ test('renders disabled buttons', () => {
 
 test('increments the counter when clicking the + button', () => {
   const { container, getByText } = render(<Counter />);
-  Simulate.click(getByText('+'));
+  fireEvent.click(getByText('+'));
   expect(container.firstChild).toMatchSnapshot();
 });
 
 test('decrements the counter when clicking the - button', () => {
   const { container, getByText } = render(<Counter />);
-  Simulate.click(getByText('-'));
+  fireEvent.click(getByText('-'));
   expect(container.firstChild).toMatchSnapshot();
 });

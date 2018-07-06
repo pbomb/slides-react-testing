@@ -1,4 +1,14 @@
 import React from 'react';
+import styled from 'react-emotion';
+
+const StyledCount = styled('span')(
+  {
+    margin: '1em',
+  },
+  ({ clicks }) => ({
+    color: clicks < 0 ? 'red' : clicks > 0 ? 'green' : 'black',
+  })
+);
 
 export default class Counter extends React.Component {
   state = {
@@ -18,7 +28,9 @@ export default class Counter extends React.Component {
         <button onClick={this.handleDecrement} data-testid="decrement">
           -
         </button>
-        <span data-testid="count">{this.state.clicks}</span>
+        <StyledCount data-testid="count" clicks={this.state.clicks}>
+          {this.state.clicks}
+        </StyledCount>
         <button onClick={this.handleIncrement} data-testid="increment">
           +
         </button>

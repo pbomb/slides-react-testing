@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Display from './display';
 
-type Props = {
+export type Props = {
   disabled?: boolean;
 };
-type State = {
+export type State = {
   clicks: number;
 };
 

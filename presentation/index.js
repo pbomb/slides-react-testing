@@ -184,12 +184,8 @@ export default class Presentation extends React.Component {
             <Heading size={5} textColor="secondary">
               Use Custom Serializers
             </Heading>
-            <Text textSize="1.5rem">(e.g. jest-glamor-react)</Text>
-            <Image
-              src="assets/jest-glamor-react.png"
-              height={698}
-              width={662}
-            />
+            <Text textSize="1.5rem">(e.g. jest-emotion)</Text>
+            <Image src="assets/jest-emotion.png" height={605} width={497} />
           </Fill>
         </Slide>
         <Slide transition={['zoom']} bgColor="primary">
@@ -222,17 +218,23 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={['slide']} bgColor="tertiary">
           <Heading size={5} textColor="primary">
+            Rendering React components
+          </Heading>
+          <Image src="assets/enzyme-render.png" />
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={5} textColor="primary">
             Inappropriate touching of privates 😳
           </Heading>
           <List textColor="secondary">
             <Appear>
-              <ListItem>wrapper.state([key])</ListItem>
+              <ListItem>wrapper.prop(key)</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>wrapper.state(key)</ListItem>
             </Appear>
             <Appear>
               <ListItem>wrapper.setState(nextState)</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>wrapper.prop([key])</ListItem>
             </Appear>
             <Appear>
               <ListItem>wrapper.instance()</ListItem>

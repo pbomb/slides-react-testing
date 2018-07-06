@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import * as React from 'react';
-import Counter from '../counter';
+import Counter, { Props, State } from '../counter';
 import Display from '../display';
 
 test('snapshots using mount', () => {
@@ -19,7 +19,7 @@ test('finding by components', () => {
 });
 
 test('reaching into component state', () => {
-  const wrapper = mount(<Counter />);
+  const wrapper = mount<Props, State>(<Counter />, {});
 
   wrapper.find('[data-testid="increment"]').simulate('click');
   expect(wrapper.state().clicks).toBe(1);

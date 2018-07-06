@@ -15,7 +15,7 @@ module.exports = {
   restoreMocks: true,
   setupTestFrameworkScriptFile:
     '<rootDir>src/test-utils/jest/setupTestFramework.ts',
-  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-glamor-react'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
   testRegex: '(/__tests__/.*|\\.spec)\\.(ts|tsx|js)$',
   transform: {
     '^.+\\.tsx?$': './node_modules/ts-jest/preprocessor.js',

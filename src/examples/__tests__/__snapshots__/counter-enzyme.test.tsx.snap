@@ -1,90 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`decrements the counter when clicking the - button 1`] = `
-.css-0,
-[data-css-0] {
-  color: red;
-}
-
-<Counter>
-  <div>
-    <button
-      data-testid="decrement"
-      disabled={false}
-      onClick={[Function]}
-    >
-      -
-    </button>
-    <Component
-      clicks={-1}
-    >
-      <glamorous(div)
-        clicks={-1}
-        data-testid="count"
-      >
-        <div
-          className="css-0"
-          data-testid="count"
-        >
-          -1
-        </div>
-      </glamorous(div)>
-    </Component>
-    <button
-      data-testid="increment"
-      disabled={false}
-      onClick={[Function]}
-    >
-      +
-    </button>
-  </div>
-</Counter>
-`;
-
-exports[`increments the counter when clicking the + button 1`] = `
-.css-0,
-[data-css-0] {
-  color: green;
-}
-
-<Counter>
-  <div>
-    <button
-      data-testid="decrement"
-      disabled={false}
-      onClick={[Function]}
-    >
-      -
-    </button>
-    <Component
-      clicks={1}
-    >
-      <glamorous(div)
-        clicks={1}
-        data-testid="count"
-      >
-        <div
-          className="css-0"
-          data-testid="count"
-        >
-          1
-        </div>
-      </glamorous(div)>
-    </Component>
-    <button
-      data-testid="increment"
-      disabled={false}
-      onClick={[Function]}
-    >
-      +
-    </button>
-  </div>
-</Counter>
-`;
-
 exports[`renders disabled buttons 1`] = `
-.css-0,
-[data-css-0] {
+.emotion-0 {
+  margin: 1em;
   color: black;
 }
 
@@ -95,12 +13,12 @@ exports[`renders disabled buttons 1`] = `
   >
     -
   </button>
-  <div
-    class="css-0"
+  <span
+    class="emotion-0"
     data-testid="count"
   >
     0
-  </div>
+  </span>
   <button
     data-testid="increment"
     disabled=""
@@ -111,8 +29,8 @@ exports[`renders disabled buttons 1`] = `
 `;
 
 exports[`renders enabled buttons by default 1`] = `
-.css-0,
-[data-css-0] {
+.emotion-0 {
+  margin: 1em;
   color: black;
 }
 
@@ -122,12 +40,12 @@ exports[`renders enabled buttons by default 1`] = `
   >
     -
   </button>
-  <div
-    class="css-0"
+  <span
+    class="emotion-0"
     data-testid="count"
   >
     0
-  </div>
+  </span>
   <button
     data-testid="increment"
   >

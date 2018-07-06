@@ -1,4 +1,4 @@
-import { render, mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import * as React from 'react';
 import Counter from '../counter';
 
@@ -13,11 +13,11 @@ test('renders disabled buttons', () => {
 test('increments the counter when clicking the + button', () => {
   const wrapper = mount(<Counter />);
   wrapper.find('[data-testid="increment"]').simulate('click');
-  expect(wrapper).toMatchSnapshot();
+  expect(wrapper.find('span[data-testid="count"]').text()).toBe('1');
 });
 
 test('decrements the counter when clicking the - button', () => {
   const wrapper = mount(<Counter />);
   wrapper.find('[data-testid="decrement"]').simulate('click');
-  expect(wrapper).toMatchSnapshot();
+  expect(wrapper.find('span[data-testid="count"]').text()).toBe('-1');
 });
