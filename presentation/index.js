@@ -76,7 +76,7 @@ export default class Presentation extends React.Component {
             by Matt Parrish
           </Text>
           <Text
-            margin="0"
+            margin="1rem 0 0 0"
             textColor="primary"
             textAlign="right"
             textSize="2rem"
@@ -84,12 +84,28 @@ export default class Presentation extends React.Component {
             Twitter: @mattparrish
           </Text>
           <Text
-            margin="0"
+            margin="0.5rem 0 0 0"
             textColor="primary"
             textAlign="right"
             textSize="2rem"
           >
             Github: @pbomb
+          </Text>
+          <Text
+            margin="1rem 0 0 0"
+            textColor="primary"
+            textAlign="left"
+            textSize="2rem"
+          >
+            Slides: http://slides-react-testing.surge.sh/
+          </Text>
+          <Text
+            margin="0.5rem 0 0 0"
+            textColor="primary"
+            textAlign="left"
+            textSize="2rem"
+          >
+            Repo: https://github.com/pbomb/slides-react-testing
           </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
