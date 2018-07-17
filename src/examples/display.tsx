@@ -14,8 +14,10 @@ const StyledCount = styled('span')(
   })
 );
 
-export default ({ clicks }: Props) => (
+const Display = ({ clicks }: Props) => (
   <StyledCount data-testid="count" clicks={clicks}>
     {clicks}
   </StyledCount>
 );
+
+export default Display;

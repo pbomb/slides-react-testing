@@ -21,4 +21,8 @@ module.exports = {
     '^.+\\.tsx?$': './node_modules/ts-jest/preprocessor.js',
   },
   transformIgnorePatterns: ['node_modules/(?!@workday/talk-web-api)/'],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };

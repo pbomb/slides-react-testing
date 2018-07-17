@@ -14,12 +14,12 @@ test('snapshots using shallow', () => {
 test('finding by components', () => {
   const wrapper = mount(<Counter />);
 
-  const display = wrapper.find(Display);
+  const display = wrapper.find('Display');
   expect(display.text()).toBe('0');
 });
 
 test('reaching into component state', () => {
-  const wrapper = mount<Props, State>(<Counter />, {});
+  const wrapper = mount<Props, State>(<Counter />);
 
   wrapper.find('[data-testid="increment"]').simulate('click');
   expect(wrapper.state().clicks).toBe(1);
@@ -32,4 +32,15 @@ test('reaching into component props', () => {
   const display = wrapper.find(Display);
 
   expect(display.props().clicks).toBe(1);
+});
+
+test('decrements the counter when clicking the - button', () => {
+  const wrapper = mount(<Counter />);
+
+  // @ts-ignore
+  wrapper.instance().handleDecrement();
+  wrapper.update();
+  const display = wrapper.find(Display);
+
+  expect(display.text()).toBe('-1');
 });

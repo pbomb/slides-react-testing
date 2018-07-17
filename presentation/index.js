@@ -60,17 +60,36 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        transition={['zoom', 'slide']}
+        transition={['slide']}
         transitionDuration={500}
         theme={theme}
         contentWidth={1200}
       >
-        <Slide transition={['zoom']} bgColor="primary">
+        <Slide transition={['zoom']} bgColor="tertiary">
           <Heading size={1} fit textColor="secondary">
-            Testing React Components
+            Confidently test React applications
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary">
-            The Good, the Bad and the Ugly 🔫 🤠 🐴
+          <Text margin="10px 0 0" textColor="primary">
+            by <S type="strikethrough">Kent C. Dodds</S>
+          </Text>
+          <Text margin="0" textColor="primary">
+            by Matt Parrish
+          </Text>
+          <Text
+            margin="0"
+            textColor="primary"
+            textAlign="right"
+            textSize="2rem"
+          >
+            Twitter: @mattparrish
+          </Text>
+          <Text
+            margin="0"
+            textColor="primary"
+            textAlign="right"
+            textSize="2rem"
+          >
+            Github: @pbomb
           </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
@@ -96,14 +115,27 @@ export default class Presentation extends React.Component {
             <Quote textColor="secondary" textSize="3rem">
               A component{' '}
               <S type="bold" textColor="primary">
-                takes in parameters
-              </S>, called props, and{' '}
-              <S type="bold" textColor="primary">
-                returns a hierarchy of views
+                takes in parameters (props)
               </S>{' '}
-              to display via the render method.
+              and{' '}
+              <S type="bold" textColor="primary">
+                renders a hierarchy of views
+              </S>{' '}
+              via the render method.
             </Quote>
           </BlockQuote>
+        </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Heading size={3} textColor="primary">
+            React Components
+          </Heading>
+          <CodePane
+            lang="javascript"
+            source="ReactDOM.render(<App/>, document.getElementById('root'));"
+            textFont="tertiary"
+            textSize="2rem"
+            margin="50px 0"
+          />
         </Slide>
         <CodeSlide
           textSize="1.3rem"
@@ -141,6 +173,32 @@ export default class Presentation extends React.Component {
         />
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={3} textColor="secondary">
+            Shallow Rendering
+          </Heading>
+          <Appear>
+            <Text textSize="10rem">👎</Text>
+          </Appear>
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={5} margin="0 0 2rem 0" textColor="primary">
+            Dangerous
+          </Heading>
+          <Tweet>
+            <p lang="en" dir="ltr">
+              And here&#39;s the TL;DR:{' '}
+              <a href="https://t.co/qLlMe65a04">https://t.co/qLlMe65a04</a>
+              <br />
+              <br />With shallow rendering I can refactor my implementation and
+              my tests break. And I can break my application without breaking my
+              tests.
+            </p>&mdash; Kent C. Dodds (@kentcdodds){' '}
+            <a href="https://twitter.com/kentcdodds/status/1016354370860904448?ref_src=twsrc%5Etfw">
+              July 9, 2018
+            </a>
+          </Tweet>
+        </Slide>
+        <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={3} textColor="secondary">
             Snapshot Testing
           </Heading>
         </Slide>
@@ -167,7 +225,7 @@ export default class Presentation extends React.Component {
           </Heading>
           <CodePane
             lang="javascript"
-            source="it('renders the thread connector when showThreadConnector is true');"
+            source="test('it renders the save button when content has been modified');"
             textFont="tertiary"
             textSize="2rem"
             margin="50px 0"
@@ -179,6 +237,9 @@ export default class Presentation extends React.Component {
           </Heading>
           <Image src="assets/empire_strikes_back.jpg" />
         </Slide>
+        <Slide transition={['slide']} bgColor="#000">
+          <Image src="assets/snapshot-updates.png" />
+        </Slide>
         <Slide transition={['slide']} bgColor="tertiary" margin={0}>
           <Fill>
             <Heading size={5} textColor="secondary">
@@ -188,12 +249,25 @@ export default class Presentation extends React.Component {
             <Image src="assets/jest-emotion.png" height={605} width={497} />
           </Fill>
         </Slide>
+        <Slide transition={['slide']} bgColor="tertiary">
+          <Fill>
+            <Heading size={5} textColor="secondary">
+              continued...
+            </Heading>
+            <Text textSize="1.5rem">babel-plugin-tester</Text>
+            <Image src="assets/babel-plugin-tester.png" />
+          </Fill>
+        </Slide>
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={3} textColor="secondary">
             Enzyme
           </Heading>
+          <Link>http://airbnb.io/enzyme/</Link>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={5} margin="0 0 2rem 0" textColor="primary">
+            Guiding Principal
+          </Heading>
           <Quote
             textColor="secondary"
             textFont="secondary"
@@ -348,25 +422,6 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading size={3} textColor="primary">
-            Let's look at an example
-          </Heading>
-        </Slide>
-        <Slide transition={['zoom']} bgColor="tertiary">
-          <Heading size={3} textColor="primary">
-            Counter Component
-          </Heading>
-          <Counter />
-        </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={3} textColor="primary" caps>
-            How do we test this component?
-          </Heading>
-          <Heading size={5} textColor="secondary" margin="1rem">
-            To the codez! 🚀
-          </Heading>
-        </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={3} textColor="primary">
             Benefits vs Enzyme
           </Heading>
           <List textColor="secondary">
@@ -383,6 +438,30 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={4} textColor="primary">
+            <S type="italics">I'm a developer!</S>
+          </Heading>
+          <Heading size={4} textColor="primary">
+            <S type="italics">Where's the code?!</S>
+          </Heading>
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary">
+            Let's look at an example
+          </Heading>
+        </Slide>
+        <Slide transition={['zoom']} bgColor="tertiary">
+          <Heading size={3} textColor="primary">
+            Counter Component
+          </Heading>
+          <Counter />
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={3} textColor="primary" caps>
+            How do we test this component?
+          </Heading>
+        </Slide>
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={3} textColor="tertiary">
             Resources
@@ -390,7 +469,7 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>
               <Link href="http://airbnb.io/enzyme/" textColor="primary">
-                Enzyme
+                Enzyme Docs
               </Link>
             </ListItem>
             <ListItem>
@@ -407,6 +486,11 @@ export default class Presentation extends React.Component {
                 textColor="primary"
               >
                 Effective Snapshot Testing
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://youtu.be/3AaghqS3W4Y" textColor="primary">
+                Kent C. Dodds video on Shallow Rendering
               </Link>
             </ListItem>
           </List>

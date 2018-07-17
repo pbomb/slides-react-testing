@@ -13,13 +13,17 @@ test('renders disabled buttons', () => {
 });
 
 test('increments the counter when clicking the + button', () => {
-  const { container, getByText } = render(<Counter />);
+  const { container, getByText, getByTestId } = render(<Counter />);
   fireEvent.click(getByText('+'));
+
+  expect(getByTestId('count').textContent).toBe('1');
   expect(container.firstChild).toMatchSnapshot();
 });
 
 test('decrements the counter when clicking the - button', () => {
-  const { container, getByText } = render(<Counter />);
+  const { container, getByText, getByTestId } = render(<Counter />);
   fireEvent.click(getByText('-'));
+
+  expect(getByTestId('count').textContent).toBe('-1');
   expect(container.firstChild).toMatchSnapshot();
 });
