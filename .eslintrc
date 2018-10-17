@@ -4,9 +4,13 @@
   "rules": {
     "indent": [2, 2, { "SwitchCase": 1 }],
     "max-len": 0,
+    "no-invalid-this": 0,
     "no-magic-numbers": 0,
-    "react/prefer-es6-class": 0,
+    "no-nested-ternary": 0,
     "react/no-multi-comp": 0,
+    "react/prop-types": 0,
+    "object-property-newline": 0,
+    "react/prefer-es6-class": 0,
     "quotes": ["error", "single"],
     "comma-dangle": ["error", "always-multiline"],
     "arrow-parens": 0

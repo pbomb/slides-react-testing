@@ -18,7 +18,7 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testRegex: '(/__tests__/.*|\\.spec)\\.(ts|tsx|js)$',
   transform: {
-    '^.+\\.tsx?$': './node_modules/ts-jest/preprocessor.js',
+    '^.+\\.tsx?$': 'ts-jest',
   },
   transformIgnorePatterns: ['node_modules/(?!@workday/talk-web-api)/'],
   watchPlugins: [

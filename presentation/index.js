@@ -159,6 +159,7 @@ export default class Presentation extends React.Component {
           color="#fff"
           transition={['fade']}
           lang="jsx"
+          // eslint-disable-next-line import/no-unresolved
           code={require('raw-loader!../assets/code/simple-component.example')}
           ranges={[
             { loc: [0, 12], title: 'Simple React Component' },
@@ -172,6 +173,7 @@ export default class Presentation extends React.Component {
           color="#fff"
           transition={['fade']}
           lang="jsx"
+          // eslint-disable-next-line import/no-unresolved
           code={require('raw-loader!../assets/code/simple-enzyme-test.example')}
           ranges={[
             { loc: [0, 39], title: 'Simple Enzyme Test' },
@@ -204,10 +206,12 @@ export default class Presentation extends React.Component {
               And here&#39;s the TL;DR:{' '}
               <a href="https://t.co/qLlMe65a04">https://t.co/qLlMe65a04</a>
               <br />
-              <br />With shallow rendering I can refactor my implementation and
-              my tests break. And I can break my application without breaking my
+              <br />
+              With shallow rendering I can refactor my implementation and my
+              tests break. And I can break my application without breaking my
               tests.
-            </p>&mdash; Kent C. Dodds (@kentcdodds){' '}
+            </p>
+            &mdash; Kent C. Dodds (@kentcdodds){' '}
             <a href="https://twitter.com/kentcdodds/status/1016354370860904448?ref_src=twsrc%5Etfw">
               July 9, 2018
             </a>

@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 
 export default class Tweet extends React.Component {
-
   componentDidMount() {
     window.twttr.widgets.load();
   }
