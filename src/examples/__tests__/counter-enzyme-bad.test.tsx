@@ -2,11 +2,11 @@ import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import Counter, { Display, Props, State } from '../counter';
 
-test('renders enabled buttons', () => {
+test('renders enabled buttons (mount)', () => {
   expect(mount(<Counter />)).toMatchSnapshot();
 });
 
-test('renders disabled buttons', () => {
+test('renders disabled buttons (shallow)', () => {
   expect(shallow(<Counter disabled={true} />)).toMatchSnapshot();
 });
 
