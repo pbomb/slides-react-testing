@@ -481,6 +481,9 @@ export default class Presentation extends React.Component {
           <Heading size={3} textColor="primary" caps>
             How do we test this component?
           </Heading>
+          <Text>
+            <S type="italics">(Yay, code!)</S>
+          </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={3} textColor="tertiary">
