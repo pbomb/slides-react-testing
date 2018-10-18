@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders disabled buttons 1`] = `
+exports[`renders disabled buttons (shallow) 1`] = `
 <div>
   <button
     data-testid="decrement"
@@ -22,7 +22,7 @@ exports[`renders disabled buttons 1`] = `
 </div>
 `;
 
-exports[`renders enabled buttons 1`] = `
+exports[`renders enabled buttons (mount) 1`] = `
 .emotion-0 {
   margin: 1em;
   color: black;
