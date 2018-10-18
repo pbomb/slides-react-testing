@@ -1,6 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshots using mount 1`] = `
+exports[`renders disabled buttons 1`] = `
+<div>
+  <button
+    data-testid="decrement"
+    disabled={true}
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <Display
+    clicks={0}
+  />
+  <button
+    data-testid="increment"
+    disabled={true}
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;
+
+exports[`renders enabled buttons 1`] = `
 .emotion-0 {
   margin: 1em;
   color: black;
@@ -39,26 +61,4 @@ exports[`snapshots using mount 1`] = `
     </button>
   </div>
 </Counter>
-`;
-
-exports[`snapshots using shallow 1`] = `
-<div>
-  <button
-    data-testid="decrement"
-    disabled={false}
-    onClick={[Function]}
-  >
-    -
-  </button>
-  <Display
-    clicks={0}
-  />
-  <button
-    data-testid="increment"
-    disabled={false}
-    onClick={[Function]}
-  >
-    +
-  </button>
-</div>
 `;
