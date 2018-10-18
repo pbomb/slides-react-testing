@@ -1,5 +1,25 @@
 import * as React from 'react';
-import Display from './display';
+import styled from 'react-emotion';
+
+type DisplayProps = {
+  clicks: number;
+};
+
+const StyledCount = styled('span')(
+  {
+    margin: '1em',
+  },
+  ({ clicks }: DisplayProps) => ({
+    color: clicks < 0 ? 'red' : clicks > 0 ? 'green' : 'black',
+  })
+);
+
+export const Display = ({ clicks }: DisplayProps) => (
+  <StyledCount data-testid="count" clicks={clicks}>
+    {clicks}
+  </StyledCount>
+);
+Display.displayName = 'Display';
 
 export type Props = {
   disabled?: boolean;

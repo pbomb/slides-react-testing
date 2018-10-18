@@ -1,20 +1,19 @@
 import { mount, shallow } from 'enzyme';
 import * as React from 'react';
-import Counter, { Props, State } from '../counter';
-import Display from '../display';
+import Counter, { Display, Props, State } from '../counter';
 
-test('snapshots using mount', () => {
+test('renders enabled buttons', () => {
   expect(mount(<Counter />)).toMatchSnapshot();
 });
 
-test('snapshots using shallow', () => {
-  expect(shallow(<Counter />)).toMatchSnapshot();
+test('renders disabled buttons', () => {
+  expect(shallow(<Counter disabled={true} />)).toMatchSnapshot();
 });
 
 test('finding by components', () => {
   const wrapper = mount(<Counter />);
 
-  const display = wrapper.find('Display');
+  const display = wrapper.find(Display);
   expect(display.text()).toBe('0');
 });
 
